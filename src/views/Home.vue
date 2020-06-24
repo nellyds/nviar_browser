@@ -1,29 +1,33 @@
 <template>
   <div class="home">
-      <LogoAnimated />
-      <v-btn @click="showRegister = !showRegister" text>What?</v-btn>
-      <transition name="slide">
-        <v-overlay
-        :value="showRegister"
-        v-if="showRegister"
-        color="rgb(0,169,159)">
-          <Register v-if="showRegister"/>
-          <v-btn  @click="showRegister =false" >close</v-btn>
-
-        </v-overlay>
-      </transition>
-
+      <v-row>
+      <div v-if="$vuetify.breakpoint.smAndUp" style="width: 33%;" />
+      <v-col md="4" >
+        <LogoAnimated />
+        <v-btn @click="showRegister = !showRegister" text>What?</v-btn>
+        <transition name="slide">
+          <v-overlay
+          :value="showRegister"
+          v-if="showRegister"
+          color="rgb(0,169,159)">
+            <Register v-if="showRegister"/>
+            <v-btn  @click="showRegister =false" >close</v-btn>
+          </v-overlay>
+        </transition>
+      </v-col>
+      </v-row>
   </div>
 </template>
 
 <script>
+
 import LogoAnimated from "@/components/navigation/LogoAnimated.vue";
 import Register from "@/components/admin/Register.vue";
 export default {
   name: "Home",
   components: {
     Register,
-    LogoAnimated
+    LogoAnimated,
   },
   data(){
     return{

@@ -1,26 +1,23 @@
 <template>
   <v-app>
-    <v-row cols="16">
-    <v-col cols="2" md="2">
-    <!-- <NavBar /> -->
-    </v-col>
-    <v-col>
+    <NavBar />
+
+      <v-content>
   <router-view>
   </router-view>
-    </v-col>
-    </v-row>
+      </v-content>
   </v-app>
 </template>
 
 <script>
 
-// import NavBar from "@/components/navigation/NavBar.vue";
+import NavBar from "@/components/navigation/NavBar.vue";
 
 export default {
   name: "App",
 
   components: {
-    // NavBar
+    NavBar
   },
 
   data: () => ({

@@ -1,45 +1,38 @@
 <template>
     <v-content class="navBar">
-        <v-navigation-drawer
-          v-model="drawer"
-          color="rgba(0,169,159,1)"
-          :right="right"
-          permanent
-          dark
+<v-app-bar
+      app
+      clipped-left
+      color="rgb(0,169,159)"
+    >
+      <v-app-bar-nav-icon color="white" @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-        >
-          <v-list
-            dense
-            nav
-            class="py-0"
-          >
-            <v-list-item two-line :class="miniVariant && 'px-0'">
-              <v-list-item-avatar>
-                <img src="https://randomuser.me/api/portraits/men/81.jpg">
-              </v-list-item-avatar>
-  
-              <v-list-item-content>
-                <v-list-item-title>N-viar</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-  
-            <v-divider></v-divider>
-  
-            <v-list-item
-              v-for="item in items"
-              :key="item.title"
-              link
-            >
-              <v-list-item-icon>
-                <v-icon>{{ item.icon }}</v-icon>
-              </v-list-item-icon>
-  
-              <v-list-item-content>
-                <v-list-item-title>{{ item.title }}</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list>
-        </v-navigation-drawer>
+
+      <v-spacer></v-spacer>
+    </v-app-bar>
+
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+      clipped
+      color="rgb(0,169,159)"
+    >
+      <v-list
+        dense
+        class="rgb(0,169,159)"
+      >
+      <v-list-item>
+        <router-link style="color: white;" to="/requests">Requests</router-link>
+      </v-list-item>
+            <v-list-item>
+        <router-link style="color: white;" to="/offers">Offers</router-link>
+      </v-list-item>
+      <v-list-item>
+        <router-link style="color: white;" to="/about">About</router-link>
+      </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
 
     </v-content>
 </template>
@@ -48,16 +41,26 @@ export default {
     data(){
         return{
     items: [
-        { title: 'Dashboard', icon: 'mdi-view-dashboard' },
-        { title: 'Photos', icon: 'mdi-image' },
-        { title: 'About', icon: 'mdi-help-box' },
+        { title: 'Your Lists'},
+        { title: 'Recipes' },
+        { title: 'Nviars'},
+        { title: 'About' },
       ],
+      drawer: true,
+      clipped: false
         }
     }
 }
 </script>
 <style scoped>
-.navBar{
-    border: solid 2px black;
+a{
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
+}
+.a:visited{
+    text-decoration: none;
+  color: white;
+  font-weight: bolder;
 }
 </style>
