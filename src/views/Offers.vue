@@ -6,20 +6,18 @@
 </template>
 <script>
 import OfferFetchByLocation from "@/components/OfferList/OfferFetchByLocation.vue";
-import OfferFetchByCoordinates from "@/components/OfferList/OfferFetchByCoordinates.vue"
-
+import OfferFetchByCoordinates from "@/components/OfferList/OfferFetchByCoordinates.vue";
 
 export default {
-  components:{
+  components: {
     OfferFetchByLocation,
     OfferFetchByCoordinates
   },
-  data(){
+  data() {
     return {
       offers: []
-    }
+    };
   }
 };
 </script>
-<style scoped>
-</style>
+<style scoped></style>

@@ -9,11 +9,9 @@
       </v-card-text>
     </v-card>
     <transition name="slide">
-    <v-overlay :value="overlay"
-            v-if="overlay"
-            color="rgb(0,169,159)">
-      <p @click="overlay = false">{{ listOffer}}</p>
-    </v-overlay>
+      <v-overlay :value="overlay" v-if="overlay" color="rgb(0,169,159)">
+        <p @click="overlay = false">{{ listOffer }}</p>
+      </v-overlay>
     </transition>
   </div>
 </template>
@@ -51,5 +49,4 @@ export default {
 .slide-leave-active {
   transition: transform 600ms ease-in-out;
 }
-
 </style>

@@ -3,7 +3,7 @@ class ListOffer {
     (this.item = item),
       (this.content = content),
       (this.listingOffer_id = listingOffer_id);
-      (this.coordinates = coordinates);
+    this.coordinates = coordinates;
   }
 }
 export default ListOffer;

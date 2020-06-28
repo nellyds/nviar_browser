@@ -9,10 +9,9 @@
       </v-card-text>
     </v-card>
     <transition name="slide">
-    <v-overlay :value="overlay"
-    v-if="overlay">
-      <p @click="overlay = false">{{ listRequest }}</p>
-    </v-overlay>
+      <v-overlay :value="overlay" v-if="overlay">
+        <p @click="overlay = false">{{ listRequest }}</p>
+      </v-overlay>
     </transition>
   </div>
 </template>
