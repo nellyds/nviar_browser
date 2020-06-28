@@ -1,9 +1,6 @@
-  
 <template>
   <div class="login">
-    <v-card
-      style="padding: 10px; border; background-color: rgb(255,73,112);"
-    >
+    <v-card style="padding: 10px; border; background-color: rgb(255,73,112);">
       <v-card-text style="color:white; font-size:2em;">Login</v-card-text>
     </v-card>
     <v-card
@@ -76,10 +73,9 @@ export default {
     },
     testToken: function() {
       this.$http
-        .post(
-          this.apiUrl + "/protected",
-          { headers: { Authorization: `Bearer ${this.$store.state.jwt}` } }
-        )
+        .post(this.apiUrl + "/protected", {
+          headers: { Authorization: `Bearer ${this.$store.state.jwt}` }
+        })
         .then(response => {
           console.log(response);
           console.log(this.$store.state.jwt);
@@ -91,31 +87,31 @@ export default {
         type: "removeJwt",
         message: "hi"
       });
-    },
     }
   }
+};
 </script>
 <style lang="scss" scoped>
-@media screen and (min-width: 416px){
-.login {
-  width: 500px;
-  height: 200px;
-  background-color: white;
+@media screen and (min-width: 416px) {
+  .login {
+    width: 500px;
+    height: 200px;
+    background-color: white;
+  }
+  .cardBody {
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+  }
 }
-.cardBody {
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
-}
-}
-@media screen and (max-width: 415px){
-.login{
-  width: 375px;
-  height: 300px;
-  background-color: white;
-}
-.cardBody {
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-}
+@media screen and (max-width: 415px) {
+  .login {
+    width: 375px;
+    height: 300px;
+    background-color: white;
+  }
+  .cardBody {
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
 }
 </style>

@@ -2,16 +2,17 @@
   <div>
     <v-card>
       <v-card-title>
-        <p @click="overlay = true">{{ listRequest.item }}</p>
+        <p @click="overlay = true">{{ listOffer.item }}</p>
       </v-card-title>
       <v-card-text>
-        <p>{{ listRequest.content }}</p>
+        <p>{{ listOffer.content }}</p>
       </v-card-text>
     </v-card>
     <transition name="slide">
     <v-overlay :value="overlay"
-    v-if="overlay">
-      <p @click="overlay = false">{{ listRequest }}</p>
+            v-if="overlay"
+            color="rgb(0,169,159)">
+      <p @click="overlay = false">{{ listOffer}}</p>
     </v-overlay>
     </transition>
   </div>
@@ -19,7 +20,7 @@
 <script>
 export default {
   props: {
-    listRequest: {
+    listOffer: {
       type: Object,
       required: true
     }
@@ -50,4 +51,5 @@ export default {
 .slide-leave-active {
   transition: transform 600ms ease-in-out;
 }
+
 </style>

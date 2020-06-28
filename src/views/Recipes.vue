@@ -1,14 +1,11 @@
 <template>
-    <v-content>
-    </v-content>
+  <v-content> </v-content>
 </template>
 <script>
 export default {
-    mounted(){
-        window.alert('hello')
-    }
-}
+  mounted() {
+    window.alert("hello");
+  }
+};
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>
