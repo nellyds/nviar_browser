@@ -46,19 +46,20 @@ export default {
           })
           .then(result => {
             this.gettingOffers = false;
-            console.log(result.data.result);
             var i;
             for (i = 0; i < result.data.result.length; i++) {
-              console.log(result.data.result[i].coordinates);
+              
               var offer = new ListOffer(
+                                result.data.result[i].name,
                 result.data.result[i].item,
                 result.data.result[i].content,
-                result.data.result[i].listingRequestId,
+                result.data.result[i].listingOfferingId,
                 result.data.result[i].coordinates
               );
               this.offers.push(offer);
             }
             this.gettingOffers = false;
+            console.log(this.offers)
           })
           .catch(() => {
             console.log("Unable to retrieve requested resource");

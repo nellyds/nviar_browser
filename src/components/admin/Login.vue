@@ -13,9 +13,9 @@
           <v-text-field
             outlined
             shaped
-            label="username"
+            label="email"
             color="white"
-            v-model="user"
+            v-model="email"
             >User
           </v-text-field>
           <v-text-field
@@ -30,6 +30,7 @@
         </v-form>
         <br />
         <v-btn @click="login">login </v-btn>
+        <v-btn @click="testToken">Test</v-btn>
       </v-card-text>
     </v-card>
   </div>
@@ -40,29 +41,27 @@ export default {
   data() {
     return {
       showLogin: false,
-      apiUrl: this.$store.state.apiUrl,
       password: "",
-      user: ""
+      email: ""
     };
   },
   methods: {
     login: function() {
       this.$http
-        .post(this.apiUrl + "/login", {
-          user: this.user,
+        .post(this.apiUrl + "/auth", {
+          email: this.email,
           password: this.password
         })
         .then(result => {
-          console.log(result.data);
-          if (result.data.status == "logged in") {
+          console.log(result.data.response);
+          if (result.data.response.email != null) {
             this.$store.commit({
               type: "storeJwt",
-              jwt: result.data.response,
-              status: result.data.status,
-              user: this.user,
-              database: result.data.database
+              jwt: result.data.response.jwt,
+              status: result.data.response.status,
+              user_id: result.data.response.user_id,
             });
-            this.$router.push({ path: "/welcome" });
+            // this.$router.push({ path: "/welcome" });
           } else {
             window.alert("Invalid Username and Password Supplied");
           }
@@ -73,13 +72,17 @@ export default {
     },
     testToken: function() {
       this.$http
-        .post(this.apiUrl + "/protected", {
-          headers: { Authorization: `Bearer ${this.$store.state.jwt}` }
-        })
+        .post(this.apiUrl + "/tokenTest", 
+        {doesThisMatter: "I hope not"},
+         { headers: { Authorization: `Bearer ${this.jwt}` }}
+        )
         .then(response => {
           console.log(response);
           console.log(this.$store.state.jwt);
           console.log(localStorage.getItem("isAuth"));
+        })
+        .catch(() =>{
+            window.alert('something went wrong');
         });
     },
     logOut: function() {
@@ -87,6 +90,14 @@ export default {
         type: "removeJwt",
         message: "hi"
       });
+    }
+  },
+  computed: {
+    apiUrl: function(){
+      return this.$store.state.apiUrl;
+    },
+    jwt: function(){
+      return this.$store.state.jwt;
     }
   }
 };

@@ -22,6 +22,9 @@
         <v-list-item>
           <router-link style="color: white;" to="/about">About</router-link>
         </v-list-item>
+                <v-list-item>
+          <router-link style="color: white;" to="/">Login / Register</router-link>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
   </v-content>

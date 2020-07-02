@@ -2,7 +2,7 @@
   <div>
     <v-card>
       <v-card-title>
-        <p @click="overlay = true">{{ listOffer.item }}</p>
+        <p @click="overlay = true">{{listOffer.name}} has some {{ listOffer.item }}</p>
       </v-card-title>
       <v-card-text>
         <p>{{ listOffer.content }}</p>
@@ -12,6 +12,9 @@
       <v-overlay :value="overlay" v-if="overlay" color="rgb(0,169,159)">
         <p @click="overlay = false">{{ listOffer }}</p>
       </v-overlay>
+      45742450
+      CA30-0600-0930-2485-8104
+
     </transition>
   </div>
 </template>

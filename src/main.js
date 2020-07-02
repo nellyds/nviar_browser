@@ -11,6 +11,7 @@ import PowerCharts from "fusioncharts/fusioncharts.powercharts";
 import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 import AOS from "aos";
 import "aos/dist/aos.css";
+
 Charts(FusionCharts);
 PowerCharts(FusionCharts);
 Widgets(FusionCharts);

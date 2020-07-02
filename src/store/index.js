@@ -16,6 +16,10 @@ export default new Vuex.Store({
       this.state.coordinates = argument.coordinates;
       console.log("set");
       console.log(this.state.coordinates);
+    },
+    storeJwt(state, payload){
+      console.log(payload)
+      this.state.jwt = payload.jwt;
     }
   },
   actions: {},

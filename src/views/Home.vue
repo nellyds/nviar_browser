@@ -9,12 +9,25 @@
           <v-overlay
             :value="showRegister"
             v-if="showRegister"
+            opacity=1
             color="rgb(0,169,159)"
           >
             <Register v-if="showRegister" />
             <v-btn @click="showRegister = false">close</v-btn>
           </v-overlay>
         </transition>
+        <v-btn @click="showLogin = !showLogin" text>Whatsdfs?</v-btn>
+        <transition name="slide">
+          <v-overlay
+          :value="showLogin"
+          v-if="showLogin"
+          opacity=1
+          color="rgb(0,169,159)">
+          <Login />
+          <v-btn @click="showLogin = false">close</v-btn>
+          </v-overlay>
+        </transition>
+        <p>{{jwt}}</p>
       </v-col>
     </v-row>
   </div>
@@ -23,16 +36,25 @@
 <script>
 import LogoAnimated from "@/components/navigation/LogoAnimated.vue";
 import Register from "@/components/admin/Register.vue";
+import Login from "@/components/admin/Login.vue";
 export default {
   name: "Home",
   components: {
     Register,
+    Login,
     LogoAnimated
   },
   data() {
     return {
-      showRegister: false
+      showRegister: false,
+      showLogin: false,
     };
+  },
+  computed: {
+    jwt: function(){
+      return this.$store.state.jwt
+    }
+
   }
 };
 </script>

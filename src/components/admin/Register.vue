@@ -4,10 +4,9 @@
       <v-text-field v-model="name" label="Your name" />
       <v-text-field v-model="lastName" label="Your surname" />
       <v-text-field v-model="email" label="Email address" />
-      <v-text-field v-model="homeNeighborhood" label="Your home neighborhood" />
+      <v-text-field v-model="password" label="password"/>
       <v-btn @click="submitRegistration" color="rgb(0,169,159)">Submit</v-btn>
     </v-form>
-    <v-text-field v-model="confirmationNumber" label="Confirmation Number" />
     <v-alert
       v-model="alert"
       border="left"
@@ -16,9 +15,7 @@
       dark
       dismissible
     >
-      <p>{{ result }}</p>
     </v-alert>
-    <v-btn text @click="submitConfirmation">Submit Confirmation Code</v-btn>
   </div>
 </template>
 <script>
@@ -29,7 +26,7 @@ export default {
       name: "",
       lastName: "",
       email: "",
-      homeNeighborhood: "",
+      password: "",
       result: "",
       alert: false
     };
@@ -41,7 +38,7 @@ export default {
           firstName: this.name,
           lastName: this.lastName,
           email: this.email,
-          neighborhood: this.homeNeighborhood
+          password: this.password
         })
         .then(response => {
           console.log(response.data);

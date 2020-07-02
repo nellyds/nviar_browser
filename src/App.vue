@@ -10,7 +10,6 @@
 
 <script>
 import NavBar from "@/components/navigation/NavBar.vue";
-
 export default {
   name: "App",
 
@@ -20,7 +19,11 @@ export default {
 
   data: () => ({
     //
-  })
+  }),
+  mounted(){
+
+  
+  }
 };
 </script>
 <style scoped>
