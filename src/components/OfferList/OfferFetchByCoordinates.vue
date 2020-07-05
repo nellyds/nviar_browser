@@ -32,7 +32,7 @@ export default {
       gettingOffers: false,
       offers: [],
       radii: [0.25, 0.5, 0.75],
-      radius: null
+      radius: null,
     };
   },
   methods: {
@@ -53,6 +53,7 @@ export default {
                                 result.data.result[i].name,
                 result.data.result[i].item,
                 result.data.result[i].content,
+                result.data.result[i].category, 
                 result.data.result[i].listingOfferingId,
                 result.data.result[i].coordinates
               );

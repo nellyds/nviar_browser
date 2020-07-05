@@ -19,6 +19,9 @@
         <v-list-item>
           <router-link style="color: white;" to="/offers">Offers</router-link>
         </v-list-item>
+                <v-list-item>
+          <router-link style="color: white;" to="/listings">Listing</router-link>
+        </v-list-item>
         <v-list-item>
           <router-link style="color: white;" to="/about">About</router-link>
         </v-list-item>

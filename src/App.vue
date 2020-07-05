@@ -4,12 +4,17 @@
 
     <v-content>
       <router-view> </router-view>
+      <div v-for="(thing,i) in things" v-bind:key="i">
+        <p>{{thing}}</p>
+        <p>{{user_id}}</p>
+      </div> 
     </v-content>
   </v-app>
 </template>
 
 <script>
 import NavBar from "@/components/navigation/NavBar.vue";
+ import  {db}  from "./firebase";
 export default {
   name: "App",
 
@@ -18,11 +23,21 @@ export default {
   },
 
   data: () => ({
-    //
+    things: [],
+    chat: ''
   }),
   mounted(){
-
-  
+    // this.$firestore.transactionChats.
+  },
+  firestore(){
+    return {
+      things: db.collection('transactionChats')
+    }
+  },
+  computed: {
+    user_id: function(){
+      return this.$store.state.user_id;
+    }
   }
 };
 </script>

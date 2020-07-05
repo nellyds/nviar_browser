@@ -4,6 +4,7 @@
     <div v-if="showOfferMetaPrompt">
       <v-text-field v-model="item" label="item" />
       <v-text-field v-model="content" label="content" />
+                  <v-select :items="items" label="Category" v-model="category" />
       <v-btn @click="submitMeta">Submit</v-btn>
     </div>
     <div v-if="showLocationPrompt">
@@ -33,10 +34,12 @@ export default {
       neighborhood: "",
       city: "",
       state: "",
+      category: null,
       showOfferMetaPrompt: true,
       showLocationPrompt: false,
       gettingCoordinates: false,
-      reviewSubmission: false
+      reviewSubmission: false,
+      items: this.$store.state.itemCategory
     };
   },
   methods: {
@@ -81,8 +84,9 @@ export default {
         .post("http://127.0.0.1:5000/listing/offer/post", {
           item: this.item,
           content: this.content,
-          user_id: "5ee58572dfca4075fbf6c20b",
+          user_id: this.user_id,
           city: this.city,
+          category: this.category,
           state: this.state,
           neighborhood: this.neighborhood,
           location: {
@@ -104,6 +108,9 @@ export default {
     },
     coordinates: function() {
       return this.$store.state.coordinates;
+    },
+    user_id: function(){
+      return this.$store.state.user_id;
     }
   }
 };

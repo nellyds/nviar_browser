@@ -4,7 +4,10 @@
     <div v-if="showRequestMetaPrompt">
       <v-text-field v-model="item" label="item" />
       <v-text-field v-model="content" label="content" />
+      <p>dfgfdg: {{items}}</p>
+            <v-select :items="items" label="Category" v-model="category" />
       <v-btn @click="submitMeta">Submit</v-btn>
+
     </div>
     <div v-if="showLocationPrompt">
       <v-btn @click="getCoordinates">Get coordinates </v-btn>
@@ -25,6 +28,7 @@
   </div>
 </template>
 <script>
+// import itemCategory from "@/models/constant.js";
 export default {
   data() {
     return {
@@ -33,10 +37,12 @@ export default {
       neighborhood: "",
       city: "",
       state: "",
+      category: null,
       showRequestMetaPrompt: true,
       showLocationPrompt: false,
       gettingCoordinates: false,
-      reviewSubmission: false
+      reviewSubmission: false,
+      items: this.$store.state.itemCategory
     };
   },
   methods: {
@@ -81,7 +87,8 @@ export default {
         .post("http://127.0.0.1:5000/listing/request/post", {
           item: this.item,
           content: this.content,
-          user_id: "5ee58572dfca4075fbf6c20b",
+          user_id: this.user_id,
+          category: this.category,
           city: this.city,
           state: this.state,
           neighborhood: this.neighborhood,
@@ -104,7 +111,10 @@ export default {
     },
     coordinates: function() {
       return this.$store.state.coordinates;
-    }
+    },
+    user_id: function(){
+      return this.$store.state.user_id;
+    },
   }
 };
 </script>

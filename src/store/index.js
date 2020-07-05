@@ -9,7 +9,24 @@ export default new Vuex.Store({
     // apiUrl: "http://nviar.herokuapp.com",
     user_id: null,
     jwt: null,
-    coordinates: null
+    coordinates: null,
+    itemCategory: [
+      "fruit",
+      "vegetable",
+      "spices",
+      "beef",
+      "dairy",
+      "fish",
+      "vegetarian",
+      "oil",
+      "sweetener",
+      "soy",
+      "sauces",
+      "flourOrGrain",
+      "beverage",
+      "nutsAndBeans",
+      "miscellaneous"
+    ]
   },
   mutations: {
     setCoordinates(state, argument) {
@@ -18,8 +35,10 @@ export default new Vuex.Store({
       console.log(this.state.coordinates);
     },
     storeJwt(state, payload){
+      console.log("payload");
       console.log(payload)
       this.state.jwt = payload.jwt;
+      this.state.user_id = payload.user_id;
     }
   },
   actions: {},
