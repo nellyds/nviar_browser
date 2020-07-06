@@ -4,9 +4,23 @@
       <v-text-field v-model="name" label="Your name" />
       <v-text-field v-model="lastName" label="Your surname" />
       <v-text-field v-model="email" label="Email address" />
-      <v-text-field v-model="password" label="password"/>
+      <v-text-field v-model="password" label="password" />
       <v-btn @click="submitRegistration" color="rgb(0,169,159)">Submit</v-btn>
     </v-form>
+    <p @click="showLogin">Login</p>
+    <v-btn @click="showLogin = !showLogin" text>Whatsdfs?</v-btn>
+    <transition name="slideLeft">
+      <v-overlay
+        :value="showLogin"
+        v-if="showLogin"
+        opacity="1"
+        color="rgb(0,169,159)"
+      >
+        <Login />
+        <v-btn @click="showLogin = false">close</v-btn>
+      </v-overlay>
+    </transition>
+    <p>sthis isn't showing up</p>
     <v-alert
       v-model="alert"
       border="left"
@@ -19,8 +33,12 @@
   </div>
 </template>
 <script>
+import Login from "@/components/admin/Login.vue";
 export default {
   name: "Register",
+  components: {
+    Login
+  },
   data() {
     return {
       name: "",
@@ -28,7 +46,8 @@ export default {
       email: "",
       password: "",
       result: "",
-      alert: false
+      alert: false,
+      showLogin: false
     };
   },
   methods: {
@@ -57,3 +76,4 @@ export default {
   }
 };
 </script>
+<style scoped></style>

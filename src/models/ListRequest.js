@@ -1,7 +1,6 @@
 class ListRequest {
   constructor(item, content, name, category, listingRequest_id, coordinates) {
     (this.item = item),
-
       (this.content = content),
       (this.name = name),
       (this.category = category),

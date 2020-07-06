@@ -4,7 +4,7 @@
     <div v-if="showOfferMetaPrompt">
       <v-text-field v-model="item" label="item" />
       <v-text-field v-model="content" label="content" />
-                  <v-select :items="items" label="Category" v-model="category" />
+      <v-select :items="items" label="Category" v-model="category" />
       <v-btn @click="submitMeta">Submit</v-btn>
     </div>
     <div v-if="showLocationPrompt">
@@ -109,7 +109,7 @@ export default {
     coordinates: function() {
       return this.$store.state.coordinates;
     },
-    user_id: function(){
+    user_id: function() {
       return this.$store.state.user_id;
     }
   }

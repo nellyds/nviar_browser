@@ -3,18 +3,16 @@
     <NavBar />
 
     <v-content>
-      <router-view> </router-view>
-      <div v-for="(thing,i) in things" v-bind:key="i">
-        <p>{{thing}}</p>
-        <p>{{user_id}}</p>
-      </div> 
+      <transition :name="transitionName">
+        <router-view> </router-view>
+      </transition>
     </v-content>
   </v-app>
 </template>
 
 <script>
 import NavBar from "@/components/navigation/NavBar.vue";
- import  {db}  from "./firebase";
+import { db } from "./firebase";
 export default {
   name: "App",
 
@@ -24,19 +22,33 @@ export default {
 
   data: () => ({
     things: [],
-    chat: ''
+    chat: "",
+    transitionName: null
   }),
-  mounted(){
+  mounted() {
     // this.$firestore.transactionChats.
   },
-  firestore(){
+  firestore() {
     return {
-      things: db.collection('transactionChats')
-    }
+      things: db.collection("transactionChats")
+    };
   },
   computed: {
-    user_id: function(){
+    user_id: function() {
       return this.$store.state.user_id;
+    }
+  },
+  watch: {
+    $route(to) {
+      if (to.name === "Offers") {
+        this.transitionName = "slideLeft";
+      }
+      if (to.name === "Requests") {
+        this.transitionName = "slideUp";
+      }
+      if (to.name === "About") {
+        this.transitionName = "slideDown";
+      }
     }
   }
 };

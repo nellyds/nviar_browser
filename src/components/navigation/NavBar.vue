@@ -7,6 +7,7 @@
       ></v-app-bar-nav-icon>
 
       <v-spacer></v-spacer>
+      <p>n-viar</p>
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" app clipped color="rgb(0,169,159)">
@@ -19,14 +20,18 @@
         <v-list-item>
           <router-link style="color: white;" to="/offers">Offers</router-link>
         </v-list-item>
-                <v-list-item>
-          <router-link style="color: white;" to="/listings">Listing</router-link>
+        <v-list-item>
+          <router-link style="color: white;" to="/listings"
+            >Listing</router-link
+          >
         </v-list-item>
         <v-list-item>
           <router-link style="color: white;" to="/about">About</router-link>
         </v-list-item>
-                <v-list-item>
-          <router-link style="color: white;" to="/">Login / Register</router-link>
+        <v-list-item>
+          <router-link style="color: white;" to="/"
+            >Login / Register</router-link
+          >
         </v-list-item>
       </v-list>
     </v-navigation-drawer>

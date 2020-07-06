@@ -59,7 +59,8 @@ export default {};
   svg {
     width: 200px;
     padding: 10px;
-    border: 4px solid rgba(0, 169, 159, 1);
+    border: 4px solid white;
+    background-color: rgba(0, 0, 0, 0.5);
   }
   svg path {
     fill-opacity: 1;
@@ -128,9 +129,10 @@ export default {};
     border-radius: 20px;
   }
   svg {
-    width: 450px;
+    width: 200px;
     padding: 10px;
-    border: 4px solid rgba(0, 169, 159, 1);
+    border: 4px solid white;
+    background-color: rgba(0, 0, 0, 0.5);
   }
   svg path {
     fill-opacity: 1;

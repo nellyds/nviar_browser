@@ -4,16 +4,11 @@
     <div v-if="showRequestMetaPrompt">
       <v-text-field v-model="item" label="item" />
       <v-text-field v-model="content" label="content" />
-      <p>dfgfdg: {{items}}</p>
-            <v-select :items="items" label="Category" v-model="category" />
+      <v-select :items="items" label="Category" v-model="category" />
       <v-btn @click="submitMeta">Submit</v-btn>
-
     </div>
     <div v-if="showLocationPrompt">
       <v-btn @click="getCoordinates">Get coordinates </v-btn>
-      <v-text-field v-model="city" label="city" />
-      <v-text-field v-model="state" label="state" />
-      <v-text-field v-model="neighborhood" label="neighborhood" />
       <v-btn @click="submitGeo">Submit</v-btn>
     </div>
     <div v-if="reviewSubmission">
@@ -22,13 +17,11 @@
         The incredibly evocative prose to sum it up (description): {{ content }}
       </p>
       <p v-if="coordinates.length > 0">Submission using geolocation</p>
-      <p v-if="validLocation">{{ neighborhood }} in {{ city }}, {{ state }}</p>
       <v-btn @click="submitRequest">Submit</v-btn>
     </div>
   </div>
 </template>
 <script>
-// import itemCategory from "@/models/constant.js";
 export default {
   data() {
     return {
@@ -38,7 +31,7 @@ export default {
       city: "",
       state: "",
       category: null,
-      showRequestMetaPrompt: true,
+      showRequestMetaPrompt: false,
       showLocationPrompt: false,
       gettingCoordinates: false,
       reviewSubmission: false,
@@ -112,9 +105,9 @@ export default {
     coordinates: function() {
       return this.$store.state.coordinates;
     },
-    user_id: function(){
+    user_id: function() {
       return this.$store.state.user_id;
-    },
+    }
   }
 };
 </script>

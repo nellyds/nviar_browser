@@ -11,17 +11,19 @@ import PowerCharts from "fusioncharts/fusioncharts.powercharts";
 import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "@/styles/style.css";
+import "@/styles/transition.css";
 Charts(FusionCharts);
 PowerCharts(FusionCharts);
 Widgets(FusionCharts);
 FusionTheme(FusionCharts);
-import VueFirestore from 'vue-firestore';
+import VueFirestore from "vue-firestore";
 Vue.use(VueFirestore);
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios;
 new Vue({
   created() {
-    AOS.init({ disable: "phone" });
+    AOS.init({});
   },
   router,
   store,

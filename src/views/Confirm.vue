@@ -1,16 +1,16 @@
 <template>
-    <div>
-        <p>Message: {{message}}</p>
-    </div>
+  <div>
+    <p>Message: {{ message }}</p>
+  </div>
 </template>
 <script>
 export default {
-    data(){
-        return{
-            message: null
-        }
-    },
-mounted() {
+  data() {
+    return {
+      message: null
+    };
+  },
+  mounted() {
     this.$http
       .post(this.apiUrl + "/user/confirm", {
         user_id: this.$route.params.id
@@ -27,13 +27,11 @@ mounted() {
         console.log("Internal Service error");
       });
   },
-  computed:{
-      apiUrl: function(){
-          return this.$store.state.apiUrl
-      }
+  computed: {
+    apiUrl: function() {
+      return this.$store.state.apiUrl;
+    }
   }
-}
+};
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>

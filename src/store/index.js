@@ -34,9 +34,9 @@ export default new Vuex.Store({
       console.log("set");
       console.log(this.state.coordinates);
     },
-    storeJwt(state, payload){
+    storeJwt(state, payload) {
       console.log("payload");
-      console.log(payload)
+      console.log(payload);
       this.state.jwt = payload.jwt;
       this.state.user_id = payload.user_id;
     }

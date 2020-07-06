@@ -2,7 +2,9 @@
   <div>
     <v-card>
       <v-card-title>
-        <p @click="overlay = true">{{listRequest.name}} would like {{ listRequest.item }}</p>
+        <p @click="overlay = true">
+          {{ listRequest.name }} would like {{ listRequest.item }}
+        </p>
       </v-card-title>
       <v-card-text>
         <p>{{ listRequest.content }}</p>

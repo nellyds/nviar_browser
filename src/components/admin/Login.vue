@@ -1,11 +1,10 @@
 <template>
   <div class="login">
-    <v-card style="padding: 10px; border; background-color: rgb(255,73,112);">
+    <v-card style="padding: 10px; border; background-color: rgb(0,159,167);">
       <v-card-text style="color:white; font-size:2em;">Login</v-card-text>
     </v-card>
     <v-card
-      color="black"
-      style="padding: 20px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; border: solid 2px rgb(255,73,112)"
+      style="padding: 20px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; border: solid 2px rgb(0,159,167)"
     >
       <v-card-text>
         <br />
@@ -59,7 +58,7 @@ export default {
               type: "storeJwt",
               jwt: result.data.response.jwt,
               status: result.data.response.status,
-              user_id: result.data.response.user_id,
+              user_id: result.data.response.user_id
             });
             // this.$router.push({ path: "/welcome" });
           } else {
@@ -72,17 +71,17 @@ export default {
     },
     testToken: function() {
       this.$http
-        .post(this.apiUrl + "/tokenTest", 
-        {doesThisMatter: "I hope not"},
-         { headers: { Authorization: `Bearer ${this.jwt}` }}
+        .post(
+          this.apiUrl + "/tokenTest",
+          { doesThisMatter: "I hope not" },
+          { headers: { Authorization: `Bearer ${this.jwt}` } }
         )
         .then(response => {
           console.log(response);
           console.log(this.$store.state.jwt);
-          console.log(localStorage.getItem("isAuth"));
         })
-        .catch(() =>{
-            window.alert('something went wrong');
+        .catch(() => {
+          window.alert("something went wrong");
         });
     },
     logOut: function() {
@@ -93,10 +92,10 @@ export default {
     }
   },
   computed: {
-    apiUrl: function(){
+    apiUrl: function() {
       return this.$store.state.apiUrl;
     },
-    jwt: function(){
+    jwt: function() {
       return this.$store.state.jwt;
     }
   }

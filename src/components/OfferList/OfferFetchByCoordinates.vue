@@ -32,7 +32,7 @@ export default {
       gettingOffers: false,
       offers: [],
       radii: [0.25, 0.5, 0.75],
-      radius: null,
+      radius: null
     };
   },
   methods: {
@@ -48,19 +48,18 @@ export default {
             this.gettingOffers = false;
             var i;
             for (i = 0; i < result.data.result.length; i++) {
-              
               var offer = new ListOffer(
-                                result.data.result[i].name,
+                result.data.result[i].name,
                 result.data.result[i].item,
                 result.data.result[i].content,
-                result.data.result[i].category, 
+                result.data.result[i].category,
                 result.data.result[i].listingOfferingId,
                 result.data.result[i].coordinates
               );
               this.offers.push(offer);
             }
             this.gettingOffers = false;
-            console.log(this.offers)
+            console.log(this.offers);
           })
           .catch(() => {
             console.log("Unable to retrieve requested resource");

@@ -31,7 +31,7 @@ const routes = [
   {
     path: "/listings",
     name: "Listings",
-    component: () => import ("../views/Listing.vue")
+    component: () => import("../views/Listing.vue")
   },
   {
     path: "/offers",
