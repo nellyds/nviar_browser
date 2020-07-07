@@ -1,53 +1,77 @@
 <template>
-  <div>
-      <v-col>
-    <div class="para1">
-      <div class="reveal-holder">
-        <div data-aos="reveal-right" class="reveal-block-white"></div>
-        <p @click="$vuetify.goTo('.para2')" class="introCopy">{{ p1 }}</p>
-            <p class="question">Why?</p>
-      </div>
+  <div class="introSection">
+    <div v-for="(item, i) in slide" v-bind:key="i">
+      <v-row no-gutters cols="16">
+        <v-col no-gutters align="right">
+          <div>
+            <div class="reveal-holder">
+              <div data-aos="reveal-right" class="reveal-block-white"></div>
+              <img
+                class="imgDetail right"
+                v-bind:src="require('@/assets/photos/' + item.imgDetail1)"
+              />
+            </div>
+          </div>
+          <div>
+            <div class="reveal-holder">
+              <div data-aos="reveal-right" class="reveal-block-black"></div>
+              <p @click="$vuetify.goTo('.para2')" class="introCopy">
+                {{ item.para }}
+              </p>
+            </div>
+          </div>
+          <div class="reveal-holder">
+            <div data-aos="reveal-right" class="reveal-block-white"></div>
+            <img
+              class="imgDetail left"
+              v-bind:src="require('@/assets/photos/' + item.imgDetail2)"
+            />
+          </div>
+        </v-col>
+        <v-col no-gutters>
+          <div class="reveal-holder">
+            <div data-aos="reveal-right" class="reveal-block-white"></div>
+            <img
+              class="imgWhole whole"
+              v-bind:src="require('@/assets/photos/' + item.imgWhole)"
+            />
+          </div>
+        </v-col>
+      </v-row>
     </div>
-    <div @click="$vuetify.goTo('.para3')" class="para2">
-      <div class="reveal-holder">
-        <div data-aos="reveal-right" class="reveal-block-white"></div>
-        <p class="introCopy">{{ p2 }}</p>
-      </div>
-      <div class="reveal-holder">
-        <div data-aos="reveal-right" class="reveal-block-white"></div>
-        <p class="introCopy">{{ p3 }}</p>
-      </div>
-      <div class="reveal-holder">
-        <div data-aos="reveal-right" class="reveal-block-white"></div>
-        <p class="introCopy">{{ p5 }}</p>
-      </div>
-          <p class="question">How?</p>
-    </div>
-
-
-    <div class="para3">
-        <div class="reveal-holder">
-        <div data-aos="reveal-right" class="reveal-block-white"></div>
-        <p class="introCopy">{{ p6 }}</p>
-        </div>
-                <div class="reveal-holder">
-        <div data-aos="reveal-right" class="reveal-block-white"></div>
-        <p class="introCopy">{{ p7 }}</p>
-        </div>
-                <div class="reveal-holder">
-        <div data-aos="reveal-right" class="reveal-block-white"></div>
-        <p class="introCopy">{{ p8 }}</p>
-                  <p class="question">What next?</p>
-        </div>
-    </div>
-      </v-col>
+    <introSlide />
   </div>
 </template>
 <script>
+import introSlide from "@/components/FrontPage/introSlide.vue";
 export default {
   name: "Intro",
+  components: {
+    introSlide
+  },
   data() {
     return {
+      slide: [
+        {
+          para:
+            "n-viar is on a mission to connect communities and make cooking less wasteful",
+          imgDetail1: "berries.jpg",
+          imgDetail2: "brocolli2.jpg",
+          imgWhole: "market.jpeg"
+        },
+        {
+          para: "statement 2, work on this",
+          imgDetail1: "apple.jpg",
+          imgDetail2: "grapes.jpg",
+          imgWhole: "oranges.jpg"
+        },
+        {
+          para: "statement 3, work on this",
+          imgDetail1: "greenApples.jpg",
+          imgDetail2: "lemons.jpg",
+          imgWhole: "raspberry.jpeg"
+        }
+      ],
       p1:
         "n-viar is on a mission to connect communities and make cooking less wasteful",
       p2:
@@ -69,66 +93,55 @@ export default {
 </script>
 <style scoped>
 @media screen and (max-width: 415px) {
+  .introSection {
+    height: 100vh;
+    position: relative;
+  }
+  .imgDetail {
+    height: 150px;
+    width: 150px;
+  }
+  .right {
+    clip: rect(25px, 175px, 175px, 25px);
+  }
+  .left {
+    clip: rect(50px, 200px, 200px, 50px);
+  }
+  .imgWhole {
+    height: 330px;
+    width: 150px;
+    clip: rect(50px, 200px, 200px, 50px);
+  }
   .introCopy {
-    font-size: 1.1em;
-    color: white;
-    font-weight: bolder;
-    text-align: right;
-    margin-right: 10%;
-    width: 80%;
-    background-color: rgba(0,0,0,.3);
-    padding: 10px;
-    margin: 10px;
+    height: 150px;
+    width: 150px;
+    margin-right: 10px;
   }
-  .para1 {
-    background-image: url("~@/assets/photos/limes.jpg");
-    background-size: cover;
-    height: 100vh;
-    margin: 20px;
+  .whole {
   }
-  .para2 {
-    background-image: url("~@/assets/photos/brocolli.jpg");
-    background-size: cover;
-    height: 100vh;
-        margin: 20px;
-  }
-    .para3 {
-    background-image: url("~@/assets/photos/prepared.jpg");
-    background-size: cover;
-    height: 100vh;
-        margin: 20px;
-  }
-  .question{
-      color: white;
-      font-weight: bolder;
-      font-size: 2.1em;
-  }
-
 }
 @media screen and (min-width: 416px) {
+  .introSection {
+  }
+  .imgDetail {
+    height: 325px;
+    width: 325px;
+  }
+  .right {
+    clip: rect(25px, 350px, 350px, 25px);
+  }
+  .left {
+    clip: rect(50px, 400px, 400px, 50px);
+  }
   .introCopy {
-    font-size: 1.4em;
-    color: black;
-    font-weight: bolder;
-    text-align: center;
-    margin-right: 10%;
+    height: 450px;
+
+    font-weight: bold;
+    font-size: 2.5em;
+    margin-right: 25px;
   }
-    .para1 {
-    background-image: url("~@/assets/photos/limes.jpg");
-    background-size: auto;
-  }
-  .para2 {
-    background-image: url("~@/assets/photos/brocolli.jpg");
-    background-size: auto;
-  }
-    .para3 {
-    background-image: url("~@/assets/photos/prepared.jpg");
-    background-size: auto;
-  }
-  .question{
-      color: white;
-      font-weight: bolder;
-      font-size: 2.1em;
+  .imgWhole {
+    height: 810px;
   }
 }
 </style>

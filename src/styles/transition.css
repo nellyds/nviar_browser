@@ -64,14 +64,33 @@
   .slideRight-enter-active{
     transition: transform 900ms ease-in-out
   }
-  .slideRight-enter{
+  .slideRight-leave{
     transform: translateX(0px)
   }
-  .slideRight-enter-to{
+  .slideRight-leave-to{
     transform: translateX(1500px)
   }
-  .slideRight-enter-active{
+  .slideRight-leave-active{
     transition: transform 600ms ease-in-out
+  }
+
+  .slideOver-enter{
+    transform: translateX( 2000px)
+  }
+  .slideOver-enter-to{
+    transform: translateX(0px)
+  }
+  .slideOver-enter-active{
+    transition: transform 900ms ease-in-out
+  }
+  .slideOver-leave{
+    transform: translateX(0px)
+  }
+  .slideOver-leave-to{
+    transform: translateX(2000px)
+  }
+  .slideOver-leave-active{
+    transition: transform 900ms ease-in-out
   }
 
   .reveal-holder {

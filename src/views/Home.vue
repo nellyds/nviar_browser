@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import Intro from "@/components/intro.vue";
+import Intro from "@/components/FrontPage/intro.vue";
 import Header from "@/components/navigation/Header.vue";
-import Process from "@/components/process.vue";
+import Process from "@/components/FrontPage/process.vue";
 export default {
   name: "Home",
   components: {

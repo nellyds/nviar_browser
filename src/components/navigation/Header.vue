@@ -1,14 +1,18 @@
 <template>
   <div class="header">
     <v-row align="center" justify="center">
-      <v-col v-if="$vuetify.breakpoint.smAndUp" align="center" justify="center">
-        <LogoAnimated />
-        <div class="reveal-holder">
-          <div data-aos="reveal-right" class="reveal-block-black"></div>
-          <p class="headerCopy">{{ intro }}</p>
-        </div>
-      </v-col>
       <v-col align="center" justify="center">
+        <v-row
+          align="center"
+          justify="center"
+          v-if="$vuetify.breakpoint.smAndUp"
+        >
+          <LogoAnimated />
+          <div class="reveal-holder">
+            <div data-aos="reveal-right" class="reveal-block-black"></div>
+            <p class="headerCopy">{{ intro }}</p>
+          </div>
+        </v-row>
         <p class="headerCopy" v-if="$vuetify.breakpoint.smAndDown">
           {{ intro }}
         </p>
@@ -18,8 +22,7 @@
             class="items"
             @click="$router.push({ path: '/requests' })"
             raised
-            outlined
-            color="white"
+            color="rgba(255,255,255,.8)"
             :block="$vuetify.breakpoint.smAndDown ? true : false"
             >Request</v-btn
           >
@@ -29,8 +32,7 @@
             class="items"
             @click="$router.push({ path: '/offers/' })"
             raised
-            outlined
-            color="white"
+            color="rgba(255,255,255,.8)"
             :block="$vuetify.breakpoint.smAndDown ? true : false"
             >Borrow</v-btn
           >
