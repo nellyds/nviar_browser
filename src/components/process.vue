@@ -1,20 +1,24 @@
 <template>
   <div>
-    <v-carousel align="center" justify="center" :show-arrows="false">
+    <!-- <v-carousel :hide-delimiters="true" align="center" justify="center" :show-arrows="false">
+              <div class="reveal-holder">
+          <div data-aos="reveal-right" class="reveal-block-black"></div>
       <v-carousel-item
         v-for="(item, i) in process"
         :key="i"
         :src="require('@/assets/photos/' + item.imgUrl)"
         :height="$vuetify.breakpoint.smAndUp ? 800 : 300"
         class="slide"
-        >;
+        >
         <div class="reveal-holder">
-          <div data-aos="reveal-right" class="reveal-block-white"></div>
+          <div data-aos="reveal-right" class="reveal-block-black"></div>
           <h1 class="slideCopy">{{ item.headline }}</h1>
           <p class="slideCopy">{{ item.explanation }}</p>
         </div>
       </v-carousel-item>
-    </v-carousel>
+              </div>
+    </v-carousel> -->
+    
   </div>
 </template>
 <script>

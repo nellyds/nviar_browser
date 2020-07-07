@@ -1,14 +1,13 @@
 <template>
-  <div>
+  <div class="register">
     <v-form @submit.prevent>
-      <v-text-field v-model="name" label="Your name" />
-      <v-text-field v-model="lastName" label="Your surname" />
-      <v-text-field v-model="email" label="Email address" />
-      <v-text-field v-model="password" label="password" />
+      <v-text-field outlined v-model="name" label="Your name" />
+      <v-text-field outlined  v-model="lastName" label="Your surname" />
+      <v-text-field outlined v-model="email" label="Email address" />
+      <v-text-field outlined v-model="password" label="password" />
       <v-btn @click="submitRegistration" color="rgb(0,169,159)">Submit</v-btn>
     </v-form>
-    <p @click="showLogin">Login</p>
-    <v-btn @click="showLogin = !showLogin" text>Whatsdfs?</v-btn>
+    <v-btn @click="showLogin = !showLogin" color="rgb(0,169,159)">Login</v-btn>
     <transition name="slideLeft">
       <v-overlay
         :value="showLogin"
@@ -20,7 +19,6 @@
         <v-btn @click="showLogin = false">close</v-btn>
       </v-overlay>
     </transition>
-    <p>sthis isn't showing up</p>
     <v-alert
       v-model="alert"
       border="left"
@@ -76,4 +74,17 @@ export default {
   }
 };
 </script>
-<style scoped></style>
+<style scoped>
+@media screen and (min-width: 416px){
+.register{
+text-align: center;
+width: 500px;
+border: solid 2px black;
+}
+}
+@media screen and (max-width: 415px){
+.register{
+  width: 90vw;
+}
+}
+</style>

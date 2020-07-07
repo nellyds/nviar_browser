@@ -1,6 +1,6 @@
 <template>
   <div class="introSlide">
-    <div v-if="$vuetify.breakpoint.smAndDown" style="height: 125px;" />
+
     <v-row no-gutters cols="16">
       <v-col no-gutters align="right">
         <div>
@@ -75,7 +75,6 @@ export default {
   }
   .introCopy {
     height: 150px;
-    width: 150px;
     margin-right: 10px;
   }
   .whole {

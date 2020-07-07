@@ -1,8 +1,8 @@
 <template>
-  <div style="border: solid 2px black;" class="home">
+  <div class="home">
     <div>
       <Header />
-      <Intro />
+      <Intro id="intro" />
       <Process />
     </div>
   </div>

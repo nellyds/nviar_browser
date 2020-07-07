@@ -7,7 +7,7 @@
       ></v-app-bar-nav-icon>
 
       <v-spacer></v-spacer>
-      <p>n-viar</p>
+      <h2 style="color: white; ">n-viar</h2>
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" app clipped color="rgb(0,169,159)">

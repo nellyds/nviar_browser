@@ -84,7 +84,6 @@ export default {
 @media screen and (max-width: 415px) {
   .introSection {
     min-height: 100vh;
-    border: solid 2px black;
   }
 
 }

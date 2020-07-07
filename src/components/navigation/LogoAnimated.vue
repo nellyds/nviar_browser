@@ -1,10 +1,12 @@
 <template>
-  <div class="logo">
+
+  <div class="logo" >
     <svg
       id="Layer_12"
       data-name="Layer 12"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 247.9 301.27"
+      
     >
       <path
         class="cls-1"
@@ -55,12 +57,13 @@ export default {};
 @media screen and (max-width: 417px) {
   .logo {
     border-radius: 20px;
+    text-align: left;
   }
   svg {
-    width: 200px;
     padding: 10px;
     border: 4px solid white;
-    background-color: rgba(0, 0, 0, 0.5);
+    height: 150px;
+
   }
   svg path {
     fill-opacity: 1;
@@ -129,10 +132,9 @@ export default {};
     border-radius: 20px;
   }
   svg {
-    width: 200px;
+    height: 45vh;
     padding: 10px;
-    border: 4px solid white;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.1);
   }
   svg path {
     fill-opacity: 1;

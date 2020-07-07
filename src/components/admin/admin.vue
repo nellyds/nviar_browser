@@ -4,7 +4,7 @@
       raised
       outlined
       color="white"
-      :block="$vuetify.breakpoint.smAndDown ? true : false"
+            :width="$vuetify.breakpoint.smAndDown ? 200 : 450"
       @click="showRegister = !showRegister"
       >Register/Login</v-btn
     >
@@ -12,10 +12,11 @@
       <v-overlay
         :value="showRegister"
         v-if="showRegister"
-        opacity=".5"
+        opacity="1"
         color="rgb(0,169,159)"
-      >
+      ><div style="width:100%;">
         <Register />
+        </div>
         <v-btn @click="showRegister = false">close</v-btn>
       </v-overlay>
     </transition>

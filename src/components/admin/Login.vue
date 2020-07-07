@@ -1,17 +1,9 @@
 <template>
   <div class="login">
-    <v-card style="padding: 10px; border; background-color: rgb(0,159,167);">
-      <v-card-text style="color:white; font-size:2em;">Login</v-card-text>
-    </v-card>
-    <v-card
-      style="padding: 20px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; border: solid 2px rgb(0,159,167)"
-    >
-      <v-card-text>
-        <br />
+
         <v-form>
           <v-text-field
             outlined
-            shaped
             label="email"
             color="white"
             v-model="email"
@@ -19,7 +11,6 @@
           </v-text-field>
           <v-text-field
             outlined
-            shaped
             type="password"
             label="password"
             color="white"
@@ -27,11 +18,7 @@
             >Password
           </v-text-field>
         </v-form>
-        <br />
         <v-btn @click="login">login </v-btn>
-        <v-btn @click="testToken">Test</v-btn>
-      </v-card-text>
-    </v-card>
   </div>
 </template>
 <script>
@@ -106,7 +93,6 @@ export default {
   .login {
     width: 500px;
     height: 200px;
-    background-color: white;
   }
   .cardBody {
     border-bottom-left-radius: 50px;
@@ -117,7 +103,6 @@ export default {
   .login {
     width: 375px;
     height: 300px;
-    background-color: white;
   }
   .cardBody {
     border-bottom-left-radius: 25px;
